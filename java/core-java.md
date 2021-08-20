@@ -14,6 +14,7 @@
   - [*What is a Memory Leak? How can a memory leak appear in garbage collected language?*](#what-is-a-memory-leak-how-can-a-memory-leak-appear-in-garbage-collected-language)
   - [*How Garbage collector algorithm works?*](#how-garbage-collector-algorithm-works)
   - [*What is difference between WeakReference and SoftReference in Java?*](#what-is-difference-between-weakreference-and-softreference-in-java)
+  - [Is Java pass by reference or pass by value?](#is-java-pass-by-reference-or-pass-by-value)
 - [Java language basics](#java-language-basics)
   - [*Datatype in Java*](#datatype-in-java)
   - [*Default value of datatypes*](#default-value-of-datatypes)
@@ -77,7 +78,14 @@
   - [*What is checked, unchecked exception and errors?*](#what-is-checked-unchecked-exception-and-errors)
   - [*What is difference between ClassNotFoundException and NoClassDefFoundError?*](#what-is-difference-between-classnotfoundexception-and-noclassdeffounderror)
   - [*Do you know Generics? How did you used in your coding?*](#do-you-know-generics-how-did-you-used-in-your-coding)
-  - [*What code coverage tools are you using for your project?*](#what-code-coverage-tools-are-you-using-for-your-project)
+  - [***What code coverage tools are you using for your project?***](#what-code-coverage-tools-are-you-using-for-your-project)
+  - [*Fail fast vs Fail Safe*](#fail-fast-vs-fail-safe)
+  - [*What is type erasure?*](#what-is-type-erasure)
+  - [*What is the ThreadLocal class? How and why would you use it?*](#what-is-the-threadlocal-class-how-and-why-would-you-use-it)
+  - [*What is the Java Producer-Consumer Problem and how can you solve it?*](#what-is-the-java-producer-consumer-problem-and-how-can-you-solve-it)
+- [Java 8](#java-8)
+  - [*What is a defender Method?*](#what-is-a-defender-method)
+  - [*What is type erasure?*](#what-is-type-erasure-1)
 
 <!-- /code_chunk_output -->
 
@@ -1051,7 +1059,83 @@ Generic Class Example !
 100
 ```
 
-### *What code coverage tools are you using for your project?* 
+### ***What code coverage tools are you using for your project?***
 * <a href="https://cobertura.github.io/cobertura/" target="_blank">Cobertura</a>
 
 
+### *Fail fast vs Fail Safe*
+***fail-fast:*** Operates directly on the collection itself. Whenever the collection is modified while iterating it throws a ConcurrentModificationException. (e.g. ArrayList, HashSet, HashMap)
+
+***fail-save:*** Operates on a cloned copy of the collection. Does not throw an exception when it gets modified while iterating. (e.g. ConcurrentHashMap, CopyOnWriteArrayList)
+
+### *What is type erasure?*
+Generics are checked at compile-time for type-correctness. The generic type information is removed in a process called type erasure. For example List<Integer> will be converted to the non-generic type List containing arbitrary Objects. Because of that, type parameters cannot be determined at run-time.
+
+### *What is the ThreadLocal class? How and why would you use it?*
+A ThreadLocal instance is used to individually manage a state/value per thread. Whenever it is used inside a thread, it accesses its own independently initialized copy of the variable. Each thread holds an implicit reference of a ThreadLocal variable as long as the thread is alive. It provides a simple way to make code thread safe
+```java
+ThreadLocal<Integer> threadLocalData = new ThreadLocal<Integer>();
+
+```
+
+### *What is the Java Producer-Consumer Problem and how can you solve it?*
+The consumer-producer problem, also knows as the bounded-buffer problem, is a classic example of a multi-process synchronization problem. It describes two processes, the producer and the consumer, which share a common, fixed-size buffer used as a queue. The producers job is to generate data, put it into the buffer and start again. At the same time, the consumer is consuming the data and removing it from the buffer, one piece at a time. The problem is to make sure, that the producer won't try to add data to a full buffer and that the consumer won't try to remove data from an empty buffer.
+
+It can be solved by synchronized access to a Queue implementation like LinkedList and the use of wait() and notify() for inter-process communication.
+```java
+public class SynchronizedQueueCPP {
+  private static final Logger LOG = getLogger(SynchronizedQueueCPP.class.getName());
+  private static final int SIZE = 10;
+  public static void main(String[] args) throws InterruptedException {
+    final Queue<Integer> queue = new LinkedList<>();
+    var producer = new Thread(() -> {
+      for(int i =0;i<100;i++){
+        synchronized (queue) {
+        while (queue.size() == SIZE) {
+            try {
+            queue.wait();
+            } catch (InterruptedException e) {
+            e.printStackTrace();
+            }
+        }
+        queue.offer(i);
+        log("Produced: {0}", i);
+        queue.notifyAll();
+        }
+      };
+    });
+    
+    var consumer = new Thread(() -> {
+      while (true) {
+        try {
+          synchronized (queue) {
+            while (queue.isEmpty()) {
+              queue.wait();
+            }
+            log("Consumed: {0}", queue.poll());
+            queue.notifyAll();
+          }
+        } catch (InterruptedException e) {
+          e.printStackTrace();
+        }
+      }
+    });
+    producer.start();
+    consumer.start();
+    producer.join();
+    consumer.join();
+  }
+}
+```
+
+
+
+
+## Java 8
+
+
+### *What is a defender Method?*
+Defender Methods are default methods, which were added in Java 8 to interfaces. With them, it is possible to add new methods to interfaces without breaking existing implementations by defining a default behavior for all of them.
+
+
+### *What is type erasure?*
