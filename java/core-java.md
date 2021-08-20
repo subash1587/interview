@@ -14,6 +14,7 @@
     - [*What is a Memory Leak? How can a memory leak appear in garbage collected language?*](#what-is-a-memory-leak-how-can-a-memory-leak-appear-in-garbage-collected-language)
     - [*How Garbage collector algorithm works?*](#how-garbage-collector-algorithm-works)
     - [*What is difference between WeakReference and SoftReference in Java?*](#what-is-difference-between-weakreference-and-softreference-in-java)
+  - [Java language basics](#java-language-basics)
     - [*What is a compile time constant in Java? What is the risk of using it?*](#what-is-a-compile-time-constant-in-java-what-is-the-risk-of-using-it)
     - [*What will be the initial value of an object reference which is defined as an instance variable?*](#what-will-be-the-initial-value-of-an-object-reference-which-is-defined-as-an-instance-variable)
     - [*Datatype in Java*](#datatype-in-java)
