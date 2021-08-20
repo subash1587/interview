@@ -1,17 +1,100 @@
-### ***What is JVM and is it platform independent?***
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+  - [JVM](#jvm)
+    - [*What is JVM and is it platform independent?*](#what-is-jvm-and-is-it-platform-independent)
+    - [*What is JIT compiler in Java?*](#what-is-jit-compiler-in-java)
+    - [*What is Classloader in Java? What are different types of classloaders?*](#what-is-classloader-in-java-what-are-different-types-of-classloaders)
+    - [*Java Compiler is stored in JDK, JRE or JVM?*](#java-compiler-is-stored-in-jdk-jre-or-jvm)
+  - [Memory management](#memory-management)
+    - [*How many types of memory areas are allocated by JVM?*](#how-many-types-of-memory-areas-are-allocated-by-jvm)
+    - [*What is difference between Heap and Stack Memory in java?*](#what-is-difference-between-heap-and-stack-memory-in-java)
+    - [*The difference between Serial and Parallel Garbage Collector?*](#the-difference-between-serial-and-parallel-garbage-collector)
+    - [*What is a Memory Leak? How can a memory leak appear in garbage collected language?*](#what-is-a-memory-leak-how-can-a-memory-leak-appear-in-garbage-collected-language)
+    - [*How Garbage collector algorithm works?*](#how-garbage-collector-algorithm-works)
+    - [*What is difference between WeakReference and SoftReference in Java?*](#what-is-difference-between-weakreference-and-softreference-in-java)
+    - [*What is a compile time constant in Java? What is the risk of using it?*](#what-is-a-compile-time-constant-in-java-what-is-the-risk-of-using-it)
+    - [*What will be the initial value of an object reference which is defined as an instance variable?*](#what-will-be-the-initial-value-of-an-object-reference-which-is-defined-as-an-instance-variable)
+    - [*Datatype in Java*](#datatype-in-java)
+    - [*Default value of datatypes*](#default-value-of-datatypes)
+    - [*What are Wrapper classes?*](#what-are-wrapper-classes)
+    - [*What are autoboxing and unboxing? When does it occur?*](#what-are-autoboxing-and-unboxing-when-does-it-occur)
+    - [*OOPS*](#oops)
+    - [*Inhertiance*](#inhertiance)
+    - [*Interface*](#interface)
+    - [*abstract class*](#abstract-class)
+    - [*class*](#class)
+    - [*Sub class vs inner class*](#sub-class-vs-inner-class)
+    - [*Object class*](#object-class)
+    - [*Object class*](#object-class-1)
+    - [*Consturctor*](#consturctor)
+    - [*Ways to create object*](#ways-to-create-object)
+    - [*this vs super*](#this-vs-super)
+    - [*Object class*](#object-class-2)
+    - [*main method can be final/ private/ empty args*](#main-method-can-be-final-private-empty-args)
+    - [*paramater vs argument*](#paramater-vs-argument)
+    - [*complie time vs run time polymorphism*](#complie-time-vs-run-time-polymorphism)
+    - [*access modifiers*](#access-modifiers)
+    - [*The difference between Inheritance and Composition?*](#the-difference-between-inheritance-and-composition)
+    - [*What is covariant return type?*](#what-is-covariant-return-type)
+    - [*access modifiers*](#access-modifiers-1)
+    - [*What are the restrictions that are applied to the Java static methods?*](#what-are-the-restrictions-that-are-applied-to-the-java-static-methods)
+    - [*Static class, variable, method*](#static-class-variable-method)
+    - [*Static import*](#static-import)
+    - [*final class, variable, method*](#final-class-variable-method)
+    - [*final class, variable, method*](#final-class-variable-method-1)
+    - [*throw, throws*](#throw-throws)
+    - [*final, finally, finalize*](#final-finally-finalize)
+    - [*throw, throw*](#throw-throw)
+    - [*package*](#package)
+    - [*transient vs volatile*](#transient-vs-volatile)
+    - [*Can we have multiple public classes in a java source file?*](#can-we-have-multiple-public-classes-in-a-java-source-file)
+- [File Access](#file-access)
+    - [*hierarchy of input/ output stream*](#hierarchy-of-input-output-stream)
+    - [*What is the purpose of the Runtime class and System class?*](#what-is-the-purpose-of-the-runtime-class-and-system-class)
+    - [*What is Java Reflection API?*](#what-is-java-reflection-api)
+    - [*How will you invoke any external process in Java?*](#how-will-you-invoke-any-external-process-in-java)
+    - [*In Java, How many ways you can take input from the console?*](#in-java-how-many-ways-you-can-take-input-from-the-console)
+    - [*What is the purpose of using javap?*](#what-is-the-purpose-of-using-javap)
+    - [*Heap dump*](#heap-dump)
+    - [*Thread dump*](#thread-dump)
+    - [*What is a native method?*](#what-is-a-native-method)
+    - [*What is immutable object? Can you write immutable object?*](#what-is-immutable-object-can-you-write-immutable-object)
+    - [*How can we create an immutable class in Java?*](#how-can-we-create-an-immutable-class-in-java)
+    - [*What is the difference between creating String as new() and literal?*](#what-is-the-difference-between-creating-string-as-new-and-literal)
+    - [*What is difference between String, StringBuffer and StringBuilder?*](#what-is-difference-between-string-stringbuffer-and-stringbuilder)
+    - [*Why string is immutable in java?*](#why-string-is-immutable-in-java)
+    - [*What is Java String Pool?*](#what-is-java-string-pool)
+    - [*Why String is popular HashMap key in Java?*](#why-string-is-popular-hashmap-key-in-java)
+    - [*What is difference between Error and Exception?*](#what-is-difference-between-error-and-exception)
+    - [*Explain about Exception Propagation?*](#explain-about-exception-propagation)
+    - [*What are different scenarios causing "Exception in thread main"?*](#what-are-different-scenarios-causing-exception-in-thread-main)
+    - [*What are the differences between throw and throws?*](#what-are-the-differences-between-throw-and-throws)
+    - [*What is checked, unchecked exception and errors?*](#what-is-checked-unchecked-exception-and-errors)
+    - [*What is difference between ClassNotFoundException and NoClassDefFoundError?*](#what-is-difference-between-classnotfoundexception-and-noclassdeffounderror)
+    - [*Do you know Generics? How did you used in your coding?*](#do-you-know-generics-how-did-you-used-in-your-coding)
+    - [*What code coverage tools are you using for your project?*](#what-code-coverage-tools-are-you-using-for-your-project)
+
+<!-- /code_chunk_output -->
+
+
+## JVM
+
+### *What is JVM and is it platform independent?*
 Java Virtual Machine (JVM) provides the environment to execute the java file(. Class file)
 
 The JVM is not platform independent. it's depends on kernel and kernel is differ from OS (Operating System) to OS. 
 
 The JVM is used to both translate the bytecode into the machine language for a particular computer and actually execute the corresponding machine-language instructions as well & make java platform indenpendent
 
-### ***What is JIT compiler in Java?***
+### *What is JIT compiler in Java?*
 The Just-In-Time (JIT) compiler is a component of the runtime environment that improves the performance of Java applications by compiling bytecodes to native machine code at run time.
 
 Java programs consists of classes, which contain platform-neutral bytecodes that can be interpreted by a JVM on many different computer architectures. At run time, the JVM loads the class files, determines the semantics of each individual bytecode, and performs the appropriate computation. The additional processor and memory usage during interpretation means that a Java application performs more slowly than a native application. The JIT compiler helps improve the performance of Java programs by compiling bytecodes into native machine code at run time. The JIT compiler is enabled by default. When a method has been compiled, the JVM calls the compiled code of that method directly instead of interpreting it. 
 
 
-### ***What is Classloader in Java? What are different types of classloaders?***
+### *What is Classloader in Java? What are different types of classloaders?*
 The **Java ClassLoader** is a part of the Java Runtime Environment that dynamically loads Java classes into the Java Virtual Machine. Java code is compiled into class file by javac compiler and JVM executes Java program, by executing byte codes written in class file. ClassLoader is responsible for loading class files from file system, network or any other source. 
 
 **Types of ClassLoader**   
@@ -23,7 +106,7 @@ The **Java ClassLoader** is a part of the Java Runtime Environment that dynamica
 **c) System Class Loader**: It loads application specific classes from the CLASSPATH environment variable. It can be set while invoking program using -cp or classpath command line options. 
 
 
-### ***Java Compiler is stored in JDK, JRE or JVM?***
+### *Java Compiler is stored in JDK, JRE or JVM?*
 **JDK**: Java Development Kit is the core component of Java Environment and provides all the tools, executables and binaries required to compile, debug and execute a Java Program. 
 
 **JRE**: Java Runtime Environment provides a platform to execute java programs. JRE consists of JVM and java binaries and other classes to execute any program successfully.
@@ -31,8 +114,9 @@ The **Java ClassLoader** is a part of the Java Runtime Environment that dynamica
 **JVM**: JVM is responsible for converting Byte code to the machine specific code. JVM is also platform dependent and provides core java functions like memory management, garbage collection, security etc. JVM is customizable and we can use java options to customize it, for example allocating minimum and maximum memory to JVM. JVM is called virtual because it provides an interface that does not depend on the underlying operating system and machine hardware.
 
 
+## Memory management
 
-### ***How many types of memory areas are allocated by JVM?***
+### *How many types of memory areas are allocated by JVM?*
 JVM is a program which takes Java bytecode and converts the byte code (line by line) into machine understandable code. JVM perform some particular types of operations:
 
 * Loading of code
@@ -50,7 +134,7 @@ JVM is a program which takes Java bytecode and converts the byte code (line by l
 **6. Native Method Stack**: It contains all the native methods used in the application.
 
 
-### ***What is difference between Heap and Stack Memory in java?***
+### *What is difference between Heap and Stack Memory in java?*
 **Java Heap Space**  
 
 Java Heap space is used by java runtime to allocate memory to Objects and JRE classes. Whenever we create any object, it’s always created in the Heap space.
@@ -78,7 +162,7 @@ As soon as method ends, the block becomes unused and become available for next m
 |Efficiency	       |Comparatively much faster to allocate when compared to heap| Slower to allocate when compared to stack|
 |Allocation/Deallocation| This Memory is automatically allocated and deallocated when a method is called and returned respectively|Heap space is allocated when new objects are created and deallocated by Gargabe Collector when they are no longer referenced |
 
-### ***The difference between Serial and Parallel Garbage Collector?***
+### *The difference between Serial and Parallel Garbage Collector?*
 **Serial Garbage Collector**  
 
 Serial garbage collector works by holding all the application threads. It is designed for the single-threaded environments. It uses just a single thread for garbage collection. The way it works by freezing all the application threads while doing garbage collection may not be suitable for a server environment. It is best suited for simple command-line programs.
@@ -89,7 +173,7 @@ Turn on the `-XX:+UseSerialGC` JVM argument to use the serial garbage collector.
 
 Parallel garbage collector is also called as throughput collector. It is the default garbage collector of the JVM. Unlike serial garbage collector, this uses multiple threads for garbage collection. Similar to serial garbage collector this also freezes all the application threads while performing garbage collection.
 
-### ***What is a Memory Leak? How can a memory leak appear in garbage collected language?***
+### *What is a Memory Leak? How can a memory leak appear in garbage collected language?*
 The standard definition of a memory leak is a scenario that occurs when **objects are no longer being used by the application, but the Garbage Collector is unable to remove them from working memory** – because they’re still being referenced. As a result, the application consumes more and more resources – which eventually leads to a fatal OutOfMemoryError.
 
 Some tools that do memory management to identifies useless objects or memeory leaks like:
@@ -126,13 +210,13 @@ Exception in thread "main" java.lang.OutOfMemoryError: Java heap space exceed
 * Through `finalize()` Methods
 * Calling `String.intern()` on Long String
 
-### ***How Garbage collector algorithm works?*** 
+### *How Garbage collector algorithm works?* 
 Garbage collection works on **Mark** and **Sweep** algorithm. In Mark phase it detects all the unreachable objects and Sweep phase it reclaim the heap space used by the garbage objects and make the space available again to the program.
 
 There are methods like <code>System.gc()</code> and <code>Runtime.gc()</code> which is used to send request of Garbage collection to JVM but it’s not guaranteed that garbage collection will happen. If there is no memory space for creating a new object in Heap Java Virtual Machine throws <code>OutOfMemoryError</code> or <code>java.lang.OutOfMemoryError</code> heap space
 
 
-### ***What is difference between WeakReference and SoftReference in Java?***
+### *What is difference between WeakReference and SoftReference in Java?*
 In Java there are four types of references differentiated on the way by which they are garbage collected.
 
 * Strong References
@@ -229,7 +313,9 @@ public class Example
 } 
 ```
 
-### ***What is a compile time constant in Java? What is the risk of using it?***
+## Java language basics
+
+### *What is a compile time constant in Java? What is the risk of using it?*
 If a primitive type or a string is defined as a constant and the value is known at compile time, the compiler replaces the constant name everywhere in the code with its value. This is called a compile-time constant.
 
 **Compile time constant must be:**  
@@ -244,7 +330,7 @@ They are replaced with actual values at compile time because compiler know their
 private final int x = 10;
 ```
 
-### ***What will be the initial value of an object reference which is defined as an instance variable?***
+### *What will be the initial value of an object reference which is defined as an instance variable?*
 The object references are all initialized to `null` in Java. However in order to do anything useful with these references, It must set to a valid object, else you will get NullPointerExceptions everywhere you try to use such default initialized references.
 
 ### *Datatype in Java*
@@ -253,7 +339,7 @@ The object references are all initialized to `null` in Java. However in order to
 There is no default value for local variables, so local variables should be declared and an initial value should be assigned before the first use.
 
 
-### ***What are Wrapper classes?***
+### *What are Wrapper classes?*
 The wrapper class in Java provides the mechanism to convert primitive into object and object into primitive.
 
 **Use of Wrapper classes in Java**  
@@ -295,7 +381,7 @@ Output
 20 20 20
 ```
 
-### ***What are autoboxing and unboxing? When does it occur?***
+### *What are autoboxing and unboxing? When does it occur?*
 The automatic conversion of primitive data types into its equivalent Wrapper type is known as boxing and opposite operation is known as unboxing.
 
 Example: Autoboxing
@@ -391,7 +477,7 @@ MyObject object = (MyObject) inStream.readObject();
 
 ### *access modifiers*
 
-### ***The difference between Inheritance and Composition?***
+### *The difference between Inheritance and Composition?*
 Though both Inheritance and Composition provides code reusablility, main difference between Composition and Inheritance in Java is that Composition allows reuse of code without extending it but for Inheritance you must extend the class for any reuse of code or functionality. Inheritance is an **"is-a"** relationship. Composition is a **"has-a"**.
 
 Example: Inheritance 
@@ -414,7 +500,7 @@ class Apple {
 }
 ```
 
-### ***What is covariant return type?***
+### *What is covariant return type?*
 It is possible to have different return type for a overriding method in child class, but child’s return type should be sub-type of parent’s return type. Overriding method becomes variant with respect to return type. The covariant return type specifies that the return type may vary in the same direction as the subclass.
 ```java
 class SuperClass {
@@ -441,7 +527,7 @@ Subclass
 
 ### *access modifiers*
 
-### ***What are the restrictions that are applied to the Java static methods?***
+### *What are the restrictions that are applied to the Java static methods?*
 If a method is declared as static, it is a member of a class rather than belonging to the object of the class. It can be called without creating an object of the class. A static method also has the power to access static data members of the class.
 
 * There are a few restrictions imposed on a static method
@@ -470,7 +556,7 @@ If a method is declared as static, it is a member of a class rather than belongi
 ### *transient vs volatile*
 
 
-### ***Can we have multiple public classes in a java source file?***
+### *Can we have multiple public classes in a java source file?*
 A Java source file can have only one class declared as **public**, we cannot put two or more public classes together in a **.java** file. This is because of the restriction that the file name should be same as the name of the public class with **.java** extension. If we want to multiple classes under consideration are to be declared as public, we have to store them in separate source files and attach the package statement as the first statement in those source files.
 
 # File Access
@@ -478,15 +564,15 @@ A Java source file can have only one class declared as **public**, we cannot put
 ### *hierarchy of input/ output stream*
 
 
-### ***What is the purpose of the Runtime class and System class?***
+### *What is the purpose of the Runtime class and System class?*
 **Runtime Class**: The purpose of the Runtime class is to provide access to the Java runtime system. The runtime information like memory availability, invoking the garbage collector, etc.
 
 **System Class**: The purpose of the System class is to provide access to system resources. It contains accessibility to standard input, standart output, error output streams, current time in millis, terminating the application, etc.
 
 
-### ***What is Java Reflection API?***
+### *What is Java Reflection API?*
 
-### ***How will you invoke any external process in Java?***
+### *How will you invoke any external process in Java?*
 We can invoke the external process in Java using **exec()** method of **Runtime Class**.
 ```java
 class ExternalProcessExample 
@@ -506,7 +592,7 @@ class ExternalProcessExample
     } 
 } 
 ```
-### ***In Java, How many ways you can take input from the console?***
+### *In Java, How many ways you can take input from the console?*
 In Java, there are three different ways for reading input from the user in the command line environment(console).
 
 **1. Using Buffered Reader Class**: This method is used by wrapping the System.in (standard input stream) in an InputStreamReader which is wrapped in a BufferedReader, we can read input from the user in the command line.
@@ -562,7 +648,7 @@ public class Sample
 }
 ```
 
-### ***What is the purpose of using javap?***
+### *What is the purpose of using javap?*
 The javap command displays information about the fields, constructors and methods present in a class file. The javap command (also known as the Java Disassembler) disassembles one or more class files. 
 
 
@@ -572,7 +658,7 @@ The javap command displays information about the fields, constructors and method
 
 ### *Thread dump*
 
-### ***What is a native method?***
+### *What is a native method?*
 A native method is a Java method (either an instance method or a class method) whose implementation is also written in another programming language such as C/C++. Moreover, a method marked as native cannot have a body and should end with a semicolon:
 
 **Main.java**
@@ -609,7 +695,7 @@ Output
 ```
 
 
-### ***What is immutable object? Can you write immutable object?***
+### *What is immutable object? Can you write immutable object?*
 Immutable objects are objects that don't change. A Java immutable object must have all its fields be internal, private final fields. It must not implement any setters. It needs a constructor that takes a value for every single field.
 
 **Creating an Immutable Object**  
@@ -631,7 +717,7 @@ public class DateContainer {
   }
 }
 ```
-### ***How can we create an immutable class in Java?***
+### *How can we create an immutable class in Java?*
 Immutable class means that once an object is created, we cannot change its content. In Java, all the wrapper classes (like Integer, Boolean, Byte, Short) and String class is immutable. 
 
 **Rules to create immutable classes**  
@@ -656,7 +742,7 @@ public final class Employee {
 }  
 ```
 
-### ***What is the difference between creating String as new() and literal?***
+### *What is the difference between creating String as new() and literal?*
 When you create String object using `new()` operator, it always create a new object in heap memory. On the other hand, if you create object using String literal syntax e.g. "Java", it may return an existing object from String pool (a cache of String object in Perm gen space, which is now moved to heap space in recent Java release), if it's already exists. Otherwise it will create a new string object and put in string pool for future re-use.
 ```java
 String a = "abc"; 
@@ -668,17 +754,17 @@ String d = new String("abc");
 System.out.println(c == d);  // false
 ```
 
-### ***What is difference between String, StringBuffer and StringBuilder?***
+### *What is difference between String, StringBuffer and StringBuilder?*
 **Mutability Difference:**  `String` is **immutable**, if you try to alter their values, another object gets created, whereas `StringBuffer` and `StringBuilder` are **mutable** so they can change their values.
 
 **Thread-Safety Difference:** The difference between `StringBuffer` and `StringBuilder` is that StringBuffer is thread-safe. So when the application needs to be run only in a single thread then it is better to use StringBuilder. StringBuilder is more efficient than StringBuffer.
 
-### ***Why string is immutable in java?*** 
+### *Why string is immutable in java?* 
 
 The string is Immutable in Java because String objects are cached in String pool. Since cached String literals are shared between multiple clients there is always a risk, where one client's action would affect all another client. 
 
 Since string is immutable it can safely share between many threads and avoid any synchronization issues in java.
-### ***What is Java String Pool?***  
+### *What is Java String Pool?*  
 
 String Pool in java is a pool of Strings stored in Java Heap Memory. String pool helps in saving a lot of space for Java Runtime although it takes more time to create the String.
 
@@ -703,11 +789,11 @@ public class StringPool {
 ```
 
 
-### ***Why String is popular HashMap key in Java?***
+### *Why String is popular HashMap key in Java?*
 Since String is immutable, its hashcode is cached at the time of creation and it doesn’t need to be calculated again. This makes it a great candidate for key in a Map and its processing is fast than other HashMap key objects. This is why String is mostly used Object as HashMap keys.
 
 
-### ***What is difference between Error and Exception?***
+### *What is difference between Error and Exception?*
 
 |BASIS FOR COMPARISON	|ERROR                                    |EXCEPTION                               |
 |-----------------------|-----------------------------------------|----------------------------------------|
@@ -720,7 +806,7 @@ Since String is immutable, its hashcode is cached at the time of creation and it
 |Example	               |OutOfMemory, StackOverFlow.|Checked Exceptions: NoSuchMethod, ClassNotFound.Unchecked Exceptions: NullPointer, IndexOutOfBounds.|
 
 
-### ***Explain about Exception Propagation?***
+### *Explain about Exception Propagation?*
 An exception is first thrown from the top of the stack and if it is not caught, it drops down the call stack to the previous method, If not caught there, the exception again drops down to the previous method, and so on until they are caught or until they reach the very bottom of the call stack. This is called exception propagation.
 ```java
 class TestExceptionPropagation {
@@ -747,7 +833,7 @@ class TestExceptionPropagation {
 ```
 
 
-### ***What are different scenarios causing "Exception in thread main"?***
+### *What are different scenarios causing "Exception in thread main"?*
 Some of the common main thread exception are as  follows:
 * **Exception in thread main java.lang.UnsupportedClassVersionError**: This exception comes when your java class is compiled from another JDK version and you are trying to run it from another java version.
 * **Exception in thread main java.lang.NoClassDefFoundError**: There are two variants of this exception. The first one is where you provide the class full name with .class extension. The second scenario is when Class is not found.
@@ -755,7 +841,7 @@ Some of the common main thread exception are as  follows:
 * **Exception in thread "main" java.lang.ArithmeticException**: Whenever any exception is thrown from main method, it prints the exception is console. The first part explains that exception is thrown from main method, second part prints the exception class name and then after a colon, it prints the exception message.
 
 
-### ***What are the differences between throw and throws?***
+### *What are the differences between throw and throws?*
 **Throw** keyword is used in the method body to throw an exception, while **throws** is used in method signature to declare the exceptions that can occur in the statements present in the method.
 
 **Throw Example**  
@@ -803,7 +889,7 @@ Output
 ```
 You shouldn't divide number by zero
 ```
-### ***What is checked, unchecked exception and errors?*** 
+### *What is checked, unchecked exception and errors?* 
 
 **1. Checked Exception**:
 
@@ -886,7 +972,7 @@ Example: **OutOfMemoryError, VirtualMachineError, AssertionError** etc.
 
 
 
-### ***What is difference between ClassNotFoundException and NoClassDefFoundError?***
+### *What is difference between ClassNotFoundException and NoClassDefFoundError?*
 `ClassNotFoundException` and `NoClassDefFoundError` occur when a particular class is not found at runtime. However, they occur at different scenarios.
 
 `ClassNotFoundException` is an exception that occurs when you try to load a class at run time using `Class.forName()` or `loadClass()` methods and mentioned classes are not found in the classpath.
@@ -895,7 +981,7 @@ Example: **OutOfMemoryError, VirtualMachineError, AssertionError** etc.
 
 
 
-### ***Do you know Generics? How did you used in your coding?***
+### *Do you know Generics? How did you used in your coding?*
 `Generics` allows type (Integer, String, … etc and user defined types) to be a parameter to methods, classes and interfaces. For example, classes like HashSet, ArrayList, HashMap, etc use generics very well.
 
 **Advantages**
@@ -945,7 +1031,7 @@ Generic Class Example !
 100
 ```
 
-### ***What code coverage tools are you using for your project?*** 
+### *What code coverage tools are you using for your project?* 
 * <a href="https://cobertura.github.io/cobertura/" target="_blank">Cobertura</a>
 
 
