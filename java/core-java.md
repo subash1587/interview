@@ -316,23 +316,6 @@ public class Example
 
 ## Java language basics
 
-### *What is a compile time constant in Java? What is the risk of using it?*
-If a primitive type or a string is defined as a constant and the value is known at compile time, the compiler replaces the constant name everywhere in the code with its value. This is called a compile-time constant.
-
-**Compile time constant must be:**  
-
-* declared final
-* primitive or String
-* initialized within declaration
-* initialized with constant expression
-
-They are replaced with actual values at compile time because compiler know their value up-front and also knows that it cannot be changed during run-time.
-```java
-private final int x = 10;
-```
-
-### *What will be the initial value of an object reference which is defined as an instance variable?*
-The object references are all initialized to `null` in Java. However in order to do anything useful with these references, It must set to a valid object, else you will get NullPointerExceptions everywhere you try to use such default initialized references.
 
 ### *Datatype in Java*
 
@@ -409,6 +392,26 @@ class UnboxingExample1 {
    }   
 } 
 ```
+
+### *What is a compile time constant in Java? What is the risk of using it?*
+If a primitive type or a string is defined as a constant and the value is known at compile time, the compiler replaces the constant name everywhere in the code with its value. This is called a compile-time constant.
+
+**Compile time constant must be:**  
+
+* declared final
+* primitive or String
+* initialized within declaration
+* initialized with constant expression
+
+They are replaced with actual values at compile time because compiler know their value up-front and also knows that it cannot be changed during run-time.
+```java
+private final int x = 10;
+```
+
+### *What will be the initial value of an object reference which is defined as an instance variable?*
+The object references are all initialized to `null` in Java. However in order to do anything useful with these references, It must set to a valid object, else you will get NullPointerExceptions everywhere you try to use such default initialized references.
+
+
 
 ### *OOPS*
 
