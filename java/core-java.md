@@ -2,80 +2,82 @@
 
 <!-- code_chunk_output -->
 
-  - [JVM](#jvm)
-    - [*What is JVM and is it platform independent?*](#what-is-jvm-and-is-it-platform-independent)
-    - [*What is JIT compiler in Java?*](#what-is-jit-compiler-in-java)
-    - [*What is Classloader in Java? What are different types of classloaders?*](#what-is-classloader-in-java-what-are-different-types-of-classloaders)
-    - [*Java Compiler is stored in JDK, JRE or JVM?*](#java-compiler-is-stored-in-jdk-jre-or-jvm)
-  - [Memory management](#memory-management)
-    - [*How many types of memory areas are allocated by JVM?*](#how-many-types-of-memory-areas-are-allocated-by-jvm)
-    - [*What is difference between Heap and Stack Memory in java?*](#what-is-difference-between-heap-and-stack-memory-in-java)
-    - [*The difference between Serial and Parallel Garbage Collector?*](#the-difference-between-serial-and-parallel-garbage-collector)
-    - [*What is a Memory Leak? How can a memory leak appear in garbage collected language?*](#what-is-a-memory-leak-how-can-a-memory-leak-appear-in-garbage-collected-language)
-    - [*How Garbage collector algorithm works?*](#how-garbage-collector-algorithm-works)
-    - [*What is difference between WeakReference and SoftReference in Java?*](#what-is-difference-between-weakreference-and-softreference-in-java)
-  - [Java language basics](#java-language-basics)
-    - [*What is a compile time constant in Java? What is the risk of using it?*](#what-is-a-compile-time-constant-in-java-what-is-the-risk-of-using-it)
-    - [*What will be the initial value of an object reference which is defined as an instance variable?*](#what-will-be-the-initial-value-of-an-object-reference-which-is-defined-as-an-instance-variable)
-    - [*Datatype in Java*](#datatype-in-java)
-    - [*Default value of datatypes*](#default-value-of-datatypes)
-    - [*What are Wrapper classes?*](#what-are-wrapper-classes)
-    - [*What are autoboxing and unboxing? When does it occur?*](#what-are-autoboxing-and-unboxing-when-does-it-occur)
-    - [*OOPS*](#oops)
-    - [*Inhertiance*](#inhertiance)
-    - [*Interface*](#interface)
-    - [*abstract class*](#abstract-class)
-    - [*class*](#class)
-    - [*Sub class vs inner class*](#sub-class-vs-inner-class)
-    - [*Object class*](#object-class)
-    - [*Object class*](#object-class-1)
-    - [*Consturctor*](#consturctor)
-    - [*Ways to create object*](#ways-to-create-object)
-    - [*this vs super*](#this-vs-super)
-    - [*Object class*](#object-class-2)
-    - [*main method can be final/ private/ empty args*](#main-method-can-be-final-private-empty-args)
-    - [*paramater vs argument*](#paramater-vs-argument)
-    - [*complie time vs run time polymorphism*](#complie-time-vs-run-time-polymorphism)
-    - [*access modifiers*](#access-modifiers)
-    - [*The difference between Inheritance and Composition?*](#the-difference-between-inheritance-and-composition)
-    - [*What is covariant return type?*](#what-is-covariant-return-type)
-    - [*access modifiers*](#access-modifiers-1)
-    - [*What are the restrictions that are applied to the Java static methods?*](#what-are-the-restrictions-that-are-applied-to-the-java-static-methods)
-    - [*Static class, variable, method*](#static-class-variable-method)
-    - [*Static import*](#static-import)
-    - [*final class, variable, method*](#final-class-variable-method)
-    - [*final class, variable, method*](#final-class-variable-method-1)
-    - [*throw, throws*](#throw-throws)
-    - [*final, finally, finalize*](#final-finally-finalize)
-    - [*throw, throw*](#throw-throw)
-    - [*package*](#package)
-    - [*transient vs volatile*](#transient-vs-volatile)
-    - [*Can we have multiple public classes in a java source file?*](#can-we-have-multiple-public-classes-in-a-java-source-file)
+- [JVM](#jvm)
+  - [*What is JVM and is it platform independent?*](#what-is-jvm-and-is-it-platform-independent)
+  - [*What is JIT compiler in Java?*](#what-is-jit-compiler-in-java)
+  - [*What is Classloader in Java? What are different types of classloaders?*](#what-is-classloader-in-java-what-are-different-types-of-classloaders)
+  - [*Java Compiler is stored in JDK, JRE or JVM?*](#java-compiler-is-stored-in-jdk-jre-or-jvm)
+- [Memory management](#memory-management)
+  - [*How many types of memory areas are allocated by JVM?*](#how-many-types-of-memory-areas-are-allocated-by-jvm)
+  - [*What is difference between Heap and Stack Memory in java?*](#what-is-difference-between-heap-and-stack-memory-in-java)
+  - [*The difference between Serial and Parallel Garbage Collector?*](#the-difference-between-serial-and-parallel-garbage-collector)
+  - [*What is a Memory Leak? How can a memory leak appear in garbage collected language?*](#what-is-a-memory-leak-how-can-a-memory-leak-appear-in-garbage-collected-language)
+  - [*How Garbage collector algorithm works?*](#how-garbage-collector-algorithm-works)
+  - [*What is difference between WeakReference and SoftReference in Java?*](#what-is-difference-between-weakreference-and-softreference-in-java)
+- [Java language basics](#java-language-basics)
+  - [*Datatype in Java*](#datatype-in-java)
+  - [*Default value of datatypes*](#default-value-of-datatypes)
+  - [*What are Wrapper classes?*](#what-are-wrapper-classes)
+  - [*What are autoboxing and unboxing? When does it occur?*](#what-are-autoboxing-and-unboxing-when-does-it-occur)
+  - [*What is a compile time constant in Java? What is the risk of using it?*](#what-is-a-compile-time-constant-in-java-what-is-the-risk-of-using-it)
+  - [*What will be the initial value of an object reference which is defined as an instance variable?*](#what-will-be-the-initial-value-of-an-object-reference-which-is-defined-as-an-instance-variable)
+  - [*OOPS*](#oops)
+  - [*Inhertiance*](#inhertiance)
+  - [*Interface*](#interface)
+  - [*abstract class*](#abstract-class)
+  - [*class*](#class)
+  - [*Sub class vs inner class*](#sub-class-vs-inner-class)
+  - [*Object class*](#object-class)
+  - [*Object class*](#object-class-1)
+  - [*Consturctor*](#consturctor)
+  - [*Ways to create object*](#ways-to-create-object)
+  - [*this vs super*](#this-vs-super)
+  - [*Object class*](#object-class-2)
+  - [*main method can be final/ private/ empty args*](#main-method-can-be-final-private-empty-args)
+  - [*paramater vs argument*](#paramater-vs-argument)
+  - [*complie time vs run time polymorphism*](#complie-time-vs-run-time-polymorphism)
+  - [*access modifiers*](#access-modifiers)
+  - [*The difference between Inheritance and Composition?*](#the-difference-between-inheritance-and-composition)
+  - [*What is covariant return type?*](#what-is-covariant-return-type)
+  - [*access modifiers*](#access-modifiers-1)
+  - [*What are the restrictions that are applied to the Java static methods?*](#what-are-the-restrictions-that-are-applied-to-the-java-static-methods)
+  - [*Static class, variable, method*](#static-class-variable-method)
+  - [*Static import*](#static-import)
+  - [*final class, variable, method*](#final-class-variable-method)
+  - [*throw, throws*](#throw-throws)
+  - [*final, finally, finalize*](#final-finally-finalize)
+  - [*throw, throw*](#throw-throw)
+  - [*package*](#package)
+  - [*transient vs volatile*](#transient-vs-volatile)
+  - [*Can we have multiple public classes in a java source file?*](#can-we-have-multiple-public-classes-in-a-java-source-file)
+- [Java Date](#java-date)
 - [File Access](#file-access)
-    - [*hierarchy of input/ output stream*](#hierarchy-of-input-output-stream)
-    - [*What is the purpose of the Runtime class and System class?*](#what-is-the-purpose-of-the-runtime-class-and-system-class)
-    - [*What is Java Reflection API?*](#what-is-java-reflection-api)
-    - [*How will you invoke any external process in Java?*](#how-will-you-invoke-any-external-process-in-java)
-    - [*In Java, How many ways you can take input from the console?*](#in-java-how-many-ways-you-can-take-input-from-the-console)
-    - [*What is the purpose of using javap?*](#what-is-the-purpose-of-using-javap)
-    - [*Heap dump*](#heap-dump)
-    - [*Thread dump*](#thread-dump)
-    - [*What is a native method?*](#what-is-a-native-method)
-    - [*What is immutable object? Can you write immutable object?*](#what-is-immutable-object-can-you-write-immutable-object)
-    - [*How can we create an immutable class in Java?*](#how-can-we-create-an-immutable-class-in-java)
-    - [*What is the difference between creating String as new() and literal?*](#what-is-the-difference-between-creating-string-as-new-and-literal)
-    - [*What is difference between String, StringBuffer and StringBuilder?*](#what-is-difference-between-string-stringbuffer-and-stringbuilder)
-    - [*Why string is immutable in java?*](#why-string-is-immutable-in-java)
-    - [*What is Java String Pool?*](#what-is-java-string-pool)
-    - [*Why String is popular HashMap key in Java?*](#why-string-is-popular-hashmap-key-in-java)
-    - [*What is difference between Error and Exception?*](#what-is-difference-between-error-and-exception)
-    - [*Explain about Exception Propagation?*](#explain-about-exception-propagation)
-    - [*What are different scenarios causing "Exception in thread main"?*](#what-are-different-scenarios-causing-exception-in-thread-main)
-    - [*What are the differences between throw and throws?*](#what-are-the-differences-between-throw-and-throws)
-    - [*What is checked, unchecked exception and errors?*](#what-is-checked-unchecked-exception-and-errors)
-    - [*What is difference between ClassNotFoundException and NoClassDefFoundError?*](#what-is-difference-between-classnotfoundexception-and-noclassdeffounderror)
-    - [*Do you know Generics? How did you used in your coding?*](#do-you-know-generics-how-did-you-used-in-your-coding)
-    - [*What code coverage tools are you using for your project?*](#what-code-coverage-tools-are-you-using-for-your-project)
+  - [*hierarchy of input/ output stream*](#hierarchy-of-input-output-stream)
+  - [*What is the purpose of the Runtime class and System class?*](#what-is-the-purpose-of-the-runtime-class-and-system-class)
+  - [*What is Java Reflection API?*](#what-is-java-reflection-api)
+  - [*How will you invoke any external process in Java?*](#how-will-you-invoke-any-external-process-in-java)
+  - [*In Java, How many ways you can take input from the console?*](#in-java-how-many-ways-you-can-take-input-from-the-console)
+  - [*What is the purpose of using javap?*](#what-is-the-purpose-of-using-javap)
+  - [*Heap dump*](#heap-dump)
+  - [*Thread dump*](#thread-dump)
+  - [*What is a native method?*](#what-is-a-native-method)
+  - [*What is immutable object? Can you write immutable object?*](#what-is-immutable-object-can-you-write-immutable-object)
+  - [*How can we create an immutable class in Java?*](#how-can-we-create-an-immutable-class-in-java)
+  - [*What is the difference between creating String as new() and literal?*](#what-is-the-difference-between-creating-string-as-new-and-literal)
+  - [*What is difference between String, StringBuffer and StringBuilder?*](#what-is-difference-between-string-stringbuffer-and-stringbuilder)
+  - [*Why string is immutable in java?*](#why-string-is-immutable-in-java)
+  - [*What is Java String Pool?*](#what-is-java-string-pool)
+  - [*Why String is popular HashMap key in Java?*](#why-string-is-popular-hashmap-key-in-java)
+- [Exception](#exception)
+  - [*What is difference between Error and Exception?*](#what-is-difference-between-error-and-exception)
+  - [*Explain about Exception Propagation?*](#explain-about-exception-propagation)
+  - [*What are different scenarios causing "Exception in thread main"?*](#what-are-different-scenarios-causing-exception-in-thread-main)
+  - [*What are the differences between throw and throws?*](#what-are-the-differences-between-throw-and-throws)
+  - [***Can any object be thrown?***](#can-any-object-be-thrown)
+  - [*What is checked, unchecked exception and errors?*](#what-is-checked-unchecked-exception-and-errors)
+  - [*What is difference between ClassNotFoundException and NoClassDefFoundError?*](#what-is-difference-between-classnotfoundexception-and-noclassdeffounderror)
+  - [*Do you know Generics? How did you used in your coding?*](#do-you-know-generics-how-did-you-used-in-your-coding)
+  - [*What code coverage tools are you using for your project?*](#what-code-coverage-tools-are-you-using-for-your-project)
 
 <!-- /code_chunk_output -->
 
@@ -314,10 +316,16 @@ public class Example
 } 
 ```
 
+###  Is Java pass by reference or pass by value?
+Java is always pass by value.
+
+It means the argument is copied to the parameter variable, so that the method operates on the copy. When the value of an object is passed, the reference to it is passed. If a reference points to a mutable object like an ArrayList and gets changed inside a method, the originally passed variable is also affected. Since passing an object as argument also means that the reference to the object is copied. As a result, both variables(original and parameter) refer to the same object.
+
 ## Java language basics
 
 
 ### *Datatype in Java*
+<img src="assets/datatype.png" height="200"/>
 
 ### *Default value of datatypes*
 There is no default value for local variables, so local variables should be declared and an initial value should be assigned before the first use.
@@ -480,6 +488,7 @@ MyObject object = (MyObject) inStream.readObject();
 ### *complie time vs run time polymorphism*
 
 ### *access modifiers*
+<img src="assets/accessmodifier.png" height="160">
 
 ### *The difference between Inheritance and Composition?*
 Though both Inheritance and Composition provides code reusablility, main difference between Composition and Inheritance in Java is that Composition allows reuse of code without extending it but for Inheritance you must extend the class for any reuse of code or functionality. Inheritance is an **"is-a"** relationship. Composition is a **"has-a"**.
@@ -547,8 +556,6 @@ If a method is declared as static, it is a member of a class rather than belongi
 
 ### *final class, variable, method*
 
-### *final class, variable, method*
-
 ### *throw, throws*
 
 ### *final, finally, finalize*
@@ -563,10 +570,13 @@ If a method is declared as static, it is a member of a class rather than belongi
 ### *Can we have multiple public classes in a java source file?*
 A Java source file can have only one class declared as **public**, we cannot put two or more public classes together in a **.java** file. This is because of the restriction that the file name should be same as the name of the public class with **.java** extension. If we want to multiple classes under consideration are to be declared as public, we have to store them in separate source files and attach the package statement as the first statement in those source files.
 
-# File Access
+## Java Date
+
+## File Access
 
 ### *hierarchy of input/ output stream*
-
+<img src="assets/io.png" height="400"/>
+<img src="assets/reader.png"  height="400"/>
 
 ### *What is the purpose of the Runtime class and System class?*
 **Runtime Class**: The purpose of the Runtime class is to provide access to the Java runtime system. The runtime information like memory availability, invoking the garbage collector, etc.
@@ -797,6 +807,8 @@ public class StringPool {
 Since String is immutable, its hashcode is cached at the time of creation and it doesn’t need to be calculated again. This makes it a great candidate for key in a Map and its processing is fast than other HashMap key objects. This is why String is mostly used Object as HashMap keys.
 
 
+## Exception
+
 ### *What is difference between Error and Exception?*
 
 |BASIS FOR COMPARISON	|ERROR                                    |EXCEPTION                               |
@@ -893,6 +905,10 @@ Output
 ```
 You shouldn't divide number by zero
 ```
+### ***Can any object be thrown?***
+No, only the Throwable & its sub class can be thrown
+
+
 ### *What is checked, unchecked exception and errors?* 
 
 **1. Checked Exception**:
