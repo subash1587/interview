@@ -83,6 +83,7 @@
   - [*What is type erasure?*](#what-is-type-erasure)
   - [*What is the ThreadLocal class? How and why would you use it?*](#what-is-the-threadlocal-class-how-and-why-would-you-use-it)
   - [*What is the Java Producer-Consumer Problem and how can you solve it?*](#what-is-the-java-producer-consumer-problem-and-how-can-you-solve-it)
+  - [Aspect](#aspect)
 - [Java 8](#java-8)
   - [*What is a defender Method?*](#what-is-a-defender-method)
   - [*What is type erasure?*](#what-is-type-erasure-1)
@@ -1128,7 +1129,28 @@ public class SynchronizedQueueCPP {
 }
 ```
 
+### Aspect
 
+``` java
+
+@Aspect
+public class APIExceptionAspect {
+@AfterThrowing(
+      pointcut = "execution(* com.abc.xyz..controller..*(..)) )",
+      throwing = "exception")
+  public void handleAPIException(final JoinPoint joinPoint, final Exception exception)
+      throws WebApplicationException {
+
+    if( if (realone instanceof APIException) {
+      APIException apiException = (APIException) realone;
+      
+       new WebApplicationException(Response.status(apiError.getHttpStatus()).entity(setErrorCode).build());
+    }
+  }
+}
+
+
+```
 
 
 ## Java 8
