@@ -17,11 +17,11 @@
     * Prototype
     * Request
     * Session
-    * 
+
   * @Indexed
   * @Component
     * @Controller - Scans for RequestMapping
-        * @RestController - @ResponseBody
+      * @RestController - @ResponseBody
     * @Service
     * @Repository - Translated exception to dataAccessException
     * @Qualifier
