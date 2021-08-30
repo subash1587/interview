@@ -19,7 +19,7 @@ public class ApiException extends RuntimeException{
 }
 ```
 
-* Interface is used to standardise the error details & that interface will be passed as constructor of ApiException
+* Interface is used to standardise the error details & that interface will be passed as constructor argument of ApiException
 ```java 
 public interface ApiError{
     int getHttpStatus();
@@ -69,7 +69,7 @@ if(!password.equal(dbPassword)){
     throw new ApiException(UserError.NOT_AUTHORIZED, null);
 }
 ```
-* All the APIExceptions are handled using an aspect class, where exception type is checked & if its APIException , respective details are get & returned as response
+* All the APIExceptions are handled using an ControllerAdvice class, where exception type is checked & if its APIException , respective details are returned as response
 ``` java
 
 @ControllerAdvice
@@ -89,13 +89,12 @@ public class ExceptionLogAdvice {
 ```
 
 
-
-
 # Security in REST
 * Authentication & Authorization is handled by AuthnAuthz services
     * The user logs in with a /login POST request containing his username and password
     * The server returns a authentication token
-    * The user sends the token within each request via `Authorization` header  `Authorization: Bearer TOKEN`.
+    * The user sends the token within each request via `Authorization` header 
+        * *`Authorization : Bearer TOKEN`*.
     * AuthnAuthz Service intercepts all the incoming request & check for the token & pass on the request to downstream when its valid or else it with throw 401 (Not Authroized ) error
 * Downstream service check for the `loggedin-user` header which has details of user like user id & roles & permission
 * Use Filter to check if the header present & also any app specific roles/permission required to access the api
@@ -144,7 +143,7 @@ public class App{
 ```
 * Logback can define different level of log to be written to console/file using logger
 * Logback provides option to roll files once file reach specific size or at end of the day
-* Use full for debuging issues
+* Useful for debuging issues
 
 ### Centralized Logging
 Logs can be publised to service which writes & provide interface to search logs based on `tracking-id`
@@ -472,7 +471,82 @@ PlatformTransactionManager platformTransactionManager;
 
 ```
 
+# ACID
+* `Atomicity`  
+    * All changes to data are performed as if they are a single operation
+    *F or example, in an application that transfers funds from one account to another, the atomicity property ensures that, if a debit is made successfully from one account, the corresponding credit is made to the other account
+* `Consistency`
+    * Data is in a consistent state when a transaction starts and when it ends.
+    * For example, in an application that transfers funds from one account to another, the consistency property ensures that the total value of funds in both the accounts is the same at the start and end of each transaction.
+* `Durability`
+    * After a transaction successfully completes, changes to data persist and are not undone, even in the event of a system failure.
+    * For example, in an application that transfers funds from one account to another, the durability property ensures that the changes made to each account will not be reversed
+* `Isolation`
+    * The intermediate state of a transaction is invisible to other transactions
+    * For example, in an application that transfers funds from one account to another, the isolation property ensures that another transaction sees the transferred funds in one account or the other, but not in both, nor in neither.
+    * Different Isolation levels [Reference](https://www.percona.com/blog/2021/02/11/various-types-of-innodb-transaction-isolation-levels-explained-using-terminal/)
+        * READ-UNCOMMITTED
+            * No Lock
+            * dirty read possible ( data from other uncommited transaction  can be viewed during in-transaaction)
+        * READ-COMMITTED
+            * No Locks
+            * No dirty read 
+            * Non Repetable read posible (data from committed transaction can be viewed during in-transaction)
+        * REPEATABLE-READ
+            * No Locks
+            * No Dirty Read
+            * No Non Repeatable read
+            * Phanthom (ghost) read possible
+                * the snapshot of the SELECT will be taken during the first execution of SELECT, and it will be until the transaction ends.
+                * If record gets inserted in another completed transaction & if current transaction update that record then the records gets added to snaphshot. Possiblity of reading the data modified outside the transaction
+        * SERIALIZABLE
+            * Locks
+            * No dirty reads
+            * No non-repeatable reads
+            * No phantom reads 
+            * Data cannot be read, unless another transaction is commited
 
-Acid
+        |  Level | Dirty Read  | Non Repeatable Read| Phantom Read| Locks |
+        |---|---|---|---|---|---|
+        | Read Uncomitted|:white_check_mark:|:white_check_mark:|:white_check_mark:|:x:|
+        | Read comitted   |:x:| :white_check_mark:|:white_check_mark: |:x:|
+        | Repeatable Read  | :x:  |:x:|:white_check_mark: |:x:|
+        | Serializable  |:x:|:x: |:x: |:white_check_mark: |
 
-IOC DI
+
+    ``` sql
+    # Transaction 1
+     Read X
+     X = X - 100
+     Write X
+     Read Y
+     Y = Y + 100
+     Write Y
+
+     # Transaction 2
+     Read X
+     Read Y
+     Z = X+Y
+     Write X
+    ```
+
+# IOC 
+`Inversion of Control`
+ * In traditional programming, application code calls reusable libraries to take care of generic tasks 
+ eg: apache common library
+    ``` java 
+
+    if(StringUtils.isBlank(data)){
+        //do something
+    }
+    ```
+* In inversion of control, it is the framework that calls the application to do specific task
+ eg: Spring. Beans are configured & framework is responsible for creating, injecting & managing the object
+
+* Tranditional programs control is inverted
+
+# DI
+ *  Dependency inversion principle is about decoupling dependencies
+ *  an object receives other objects that it depends on, called dependencies
+
+
