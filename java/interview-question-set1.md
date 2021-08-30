@@ -93,140 +93,139 @@
 
 <!-- /code_chunk_output -->
 
-
 # REST
 
-#### How to handle security in application
+### How to handle security in application
 
 
-#### How 2 services interact with each other
+### How 2 services interact with each other
 
 
-#### Circuit breaker
+### Circuit breaker
 
 
-#### Load balancer
+### Load balancer
 
 
-#### Microservies
+### Microservies
 
 
-#### SOAP
+### SOAP
 
 
-#### How to create restful application
+### How to create restful application
 
 
 
 
 # Spring
-#### Scope of Bean & Why & when to use
+### Scope of Bean & Why & when to use
 Prototype is used in threaded environment
 
 
 
-#### Types of injection & which is preferable
+### Types of injection & which is preferable
 Constructor inject is preferable
 
-#### @Primary
+### @Primary
 
 
-#### How to execute custom logic before initialiation
+### How to execute custom logic before initialiation
 * static block
 * constructor
 * @PostConstruct
 * InitializingBean
 
-#### How to scan components in other package
+### How to scan components in other package
 @ComponentScan
 
-#### @Controller vs @RestController
+### @Controller vs @RestController
 
-#### IoC vs DI
+### IoC vs DI
 
 # Spring Boot
 
-#### Advantage of Spring Boot over Spring
+### Advantage of Spring Boot over Spring
 
-#### How to refer data from application.properties inside a bean
+### How to refer data from application.properties inside a bean
 `@Value("${key}")`
 
-#### Components of spring boot
+### Components of spring boot
 
-#### Spring Actuator
+### Spring Actuator
 
-#### Spring boot initializer
+### Spring boot initializer
 
-#### Spring Batch
+### Spring Batch
 
 
-#### Connect 2 database in spring boot
+### Connect 2 database in spring boot
 `@Table(schema = "users")`
 `2 entityManager & transactionManager`
 `@Transaction("txnMgr1")`
 [Reference](https://www.baeldung.com/spring-data-jpa-multiple-databases)
 
 
-#### Repositories other than JPARepository
+### Repositories other than JPARepository
 
 # Caching
-#### How to do caching in  application
+### How to do caching in  application
 
 # Functional Test
-#### Any tools to automate functional testing
+### Any tools to automate functional testing
 
 # Unit Testing
 
 
-####  Mokito
+###  Mokito
 
 
-#### @Before
+### @Before
 
 # Performance Tuning
 
-####  Code optimization tools
+###  Code optimization tools
 
 
 # Core Java
-#### Is static block thread safe
+### Is static block thread safe
 Yes
 
-#### Can static methods overriden
+### Can static methods overriden
 
-#### Exception in parent class can be omitted in sub class
+### Exception in parent class can be omitted in sub class
 Yes, inverse not possible
 
 
 
-#### Why we use encapsulation
+### Why we use encapsulation
 
 
-#### Blocking Queue
+### Blocking Queue
 
 
-#### Fail Fast vs Fail Safe
+### Fail Fast vs Fail Safe
 Fail safe - Iterator, Concurrent collection
 Fail fast - foreach - Concurrent Modification Exception
 
-#### What is reflection
+### What is reflection
 
-#### Loose coupling vs Tight Coupling
+### Loose coupling vs Tight Coupling
 
-#### How many ways to create object
+### How many ways to create object
 
-#### How to connect to database
+### How to connect to database
 
 
-#### Hot not ot serialize a variable in a object
+### Hot not ot serialize a variable in a object
 transient keyword
 
 
-#### Volatile
+### Volatile
 
 
 
-#### Advantage of StreaAPI
+### Advantage of StreaAPI
 * strong affinity with functions.
 * encourage less mutability.
 *  encourage looser coupling
@@ -234,14 +233,14 @@ transient keyword
 * provide scope for future efficiency gains
 * more declarative style
 
-#### Disadvantage of StreamAPI
+### Disadvantage of StreamAPI
 * Performance
 * Familiarity
 * Cognitive overhead
 * Debuggers
 * [Reference](https://stackoverflow.com/questions/44180101/in-java-what-are-the-advantages-of-streams-over-loops/44183051)
 
-#### Prallel vs Sequenctial stream api
+### Prallel vs Sequenctial stream api
 
 Parallel streams enable us to execute code in parallel on separate cores
 [Reference](https://www.baeldung.com/java-when-to-use-parallel-stream)
@@ -251,93 +250,93 @@ listOfNumbers.parallelStream().forEach(number ->
 );
 ```
 
-#### Statement vs Prepared Statement
+### Statement vs Prepared Statement
 
 
-#### Name few functional interfaces
+### Name few functional interfaces
 
-#### Intermediate vs Terminal Operation
+### Intermediate vs Terminal Operation
 * Intermediate  `flatMap, map, sorted, filter`
 * Terminal `forEach, findFirst, allMatch, noneMatch, anyMatch, findAny`
 
 
 
-#### How to use treemap
+### How to use treemap
 
 ### HasMap 
 
-#### How Hasmap works
+### How Hasmap works
 
-#### Keys in Hasmap
+### Keys in Hasmap
 
-#### Keys in Hasmap
+### Keys in Hasmap
 Object default hashcode - memory addresss
 Object default equal - className + hex(hascode())
 
-#### How object has same hashcode everytime
+### How object has same hashcode everytime
 
 
-#### What is loadfactor in hashmap
+### What is loadfactor in hashmap
 The [load factor](https://www.baeldung.com/java-hashmap-load-factor) is the measure that decides when to increase the capacity of the Map. The default load factor is 75% of the capacity.
 
-#### Changes to hashmap in Java8
+### Changes to hashmap in Java8
 
 
 ## String
 
-#### String builder vs String buffer
+### String builder vs String buffer
 
-#### String builder declared as final, will append work
+### String builder declared as final, will append work
 
 
-#### Is String immutable & Why
+### Is String immutable & Why
 Yes. [Because](https://www.baeldung.com/java-string-immutable)
 
 ## Exception
 
-#### What is error class
+### What is error class
 
-####  Custom exception handling
-
-
-#### Exception inheritance
-
-#### final , finally
-
-#### throw, throws
-
-#### What happens when an exception is thrown from finally block
+###  Custom exception handling
 
 
-#### When to use finally
+### Exception inheritance
+
+### final , finally
+
+### throw, throws
+
+### What happens when an exception is thrown from finally block
+
+
+### When to use finally
 
 
 ### Multithreading
 
-#### Ways to create thread
+### Ways to create thread
 
-#### Concurrent COllection
+### Concurrent COllection
 
-#### Realtime usage of multi thread
+### Realtime usage of multi thread
 
-#### Executor Framework
+### Executor Framework
 
 # DB
 
-#### SQL Injection 
+### SQL Injection 
 
 
 
-#### Storedprocedure vs function 
+### Storedprocedure vs function 
 * The function must return a value , SP its optional
 * Functions can have only input parameters for it whereas Procedures can have input or output parameters
 * Functions can be called from Procedure whereas Procedures cannot be called from a Function
 * Function allows only select
 * Exception & transaction handled in stored procedure
 
-#### Data normalization & its types 
+### Data normalization & its types 
 
-#### General consideration to design database
+### General consideration to design database
 * Organize the informatio
 * Divide the information into tables   
 * Turn information items into columns    
@@ -348,9 +347,9 @@ Yes. [Because](https://www.baeldung.com/java-string-immutable)
 
 # Desing Pattern
 
-#### Singleton & Ways to create Singleton
+### Singleton & Ways to create Singleton
 
-#### When to use Singleton
+### When to use Singleton
 
-#### Factory Desing Patern
+### Factory Desing Patern
 
