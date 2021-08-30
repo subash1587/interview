@@ -88,7 +88,6 @@ public class ExceptionLogAdvice {
 
 ```
 
-
 # Security in REST
 * Authentication & Authorization is handled by AuthnAuthz services
     * The user logs in with a /login POST request containing his username and password
@@ -550,3 +549,35 @@ PlatformTransactionManager platformTransactionManager;
  *  an object receives other objects that it depends on, called dependencies
 
 
+# Executor Service
+`ExecutorService`
+* simplifies running tasks in asynchronous mode
+* provides a pool of threads and an API for assigning tasks to it
+* easiest way create ExecutorService is to use one of the factory methods of the Executors class
+    > ExecutorService executor = Executors.newFixedThreadPool(10);
+* `execute()` method is void and doesn't give any possibility to get the result of a task's execution or to check the task's status (is it running):
+* `submit()` submits a Callable or a Runnable task to an ExecutorService 
+    > Future<String> future = executorService.submit(callableTask);
+* The `shutdown()`  stops accepting new tasks and shut down after all running threads finish their current work:
+* The `shutdownNow()` method tries to destroy the ExecutorService immediately. It doesn't guarantee that all the running threads will be stopped at the same time:
+* Best Practise
+    ```java
+    executorService.shutdown();
+    try {
+        if (!executorService.awaitTermination(800, TimeUnit.MILLISECONDS)) {
+            executorService.shutdownNow();
+        } 
+    } catch (InterruptedException e) {
+        executorService.shutdownNow();
+    }
+    ```
+`Future`
+* `get()` method while the task is still running will cause execution to block until the task properly executes and the result is available.
+    >result = future.get();
+    
+    >result = future.get(200, TimeUnit.MILLISECONDS);
+
+* `cancel` to cancel task
+    >boolean canceled = future.cancel(true);
+    >boolean isCancelled = future.isCancelled();
+* `isDone()` to check if task is completed
