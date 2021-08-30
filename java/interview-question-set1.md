@@ -4,96 +4,98 @@
 <!-- code_chunk_output -->
 
 - [REST](#rest)
-      - [How to handle security in application](#how-to-handle-security-in-application)
-      - [How 2 services interact with each other](#how-2-services-interact-with-each-other)
-      - [Circuit breaker](#circuit-breaker)
-      - [Load balancer](#load-balancer)
-      - [Microservies](#microservies)
-      - [SOAP](#soap)
-      - [How to create restful application](#how-to-create-restful-application)
+    - [How to handle security in application](#how-to-handle-security-in-application)
+    - [How 2 services interact with each other](#how-2-services-interact-with-each-other)
+    - [Circuit breaker](#circuit-breaker)
+    - [Load balancer](#load-balancer)
+    - [Microservies](#microservies)
+    - [SOAP](#soap)
+    - [How to create restful application](#how-to-create-restful-application)
 - [Spring](#spring)
-      - [Scope of Bean & Why & when to use](#scope-of-bean-why-when-to-use)
-      - [Types of injection & which is preferable](#types-of-injection-which-is-preferable)
-      - [@Primary](#primary)
-      - [How to execute custom logic before initialiation](#how-to-execute-custom-logic-before-initialiation)
-      - [How to scan components in other package](#how-to-scan-components-in-other-package)
-      - [@Controller vs @RestController](#controller-vs-restcontroller)
-      - [IoC vs DI](#ioc-vs-di)
+    - [Scope of Bean & Why & when to use](#scope-of-bean-why-when-to-use)
+    - [Types of injection & which is preferable](#types-of-injection-which-is-preferable)
+    - [@Primary](#primary)
+    - [How to execute custom logic before initialiation](#how-to-execute-custom-logic-before-initialiation)
+    - [How to scan components in other package](#how-to-scan-components-in-other-package)
+    - [@Controller vs @RestController](#controller-vs-restcontroller)
+    - [IoC vs DI](#ioc-vs-di)
 - [Spring Boot](#spring-boot)
-      - [Advantage of Spring Boot over Spring](#advantage-of-spring-boot-over-spring)
-      - [How to refer data from application.properties inside a bean](#how-to-refer-data-from-applicationproperties-inside-a-bean)
-      - [Components of spring boot](#components-of-spring-boot)
-      - [Spring Actuator](#spring-actuator)
-      - [Spring boot initializer](#spring-boot-initializer)
-      - [Spring Batch](#spring-batch)
-      - [Connect 2 database in spring boot](#connect-2-database-in-spring-boot)
-      - [Repositories other than JPARepository](#repositories-other-than-jparepository)
+    - [Advantage of Spring Boot over Spring](#advantage-of-spring-boot-over-spring)
+    - [How to refer data from application.properties inside a bean](#how-to-refer-data-from-applicationproperties-inside-a-bean)
+    - [Components of spring boot](#components-of-spring-boot)
+    - [Spring Actuator](#spring-actuator)
+    - [Spring boot initializer](#spring-boot-initializer)
+    - [Spring Batch](#spring-batch)
+    - [Connect 2 database in spring boot](#connect-2-database-in-spring-boot)
+    - [Repositories other than JPARepository](#repositories-other-than-jparepository)
 - [Caching](#caching)
-      - [How to do caching in  application](#how-to-do-caching-in-application)
+    - [How to do caching in  application](#how-to-do-caching-in-application)
 - [Functional Test](#functional-test)
-      - [Any tools to automate functional testing](#any-tools-to-automate-functional-testing)
+    - [Any tools to automate functional testing](#any-tools-to-automate-functional-testing)
 - [Unit Testing](#unit-testing)
-      - [Mokito](#mokito)
-      - [@Before](#before)
+    - [Mokito](#mokito)
+    - [@Before](#before)
 - [Performance Tuning](#performance-tuning)
-      - [Code optimization tools](#code-optimization-tools)
+    - [Code optimization tools](#code-optimization-tools)
 - [Core Java](#core-java)
-      - [Is static block thread safe](#is-static-block-thread-safe)
-      - [Can static methods overriden](#can-static-methods-overriden)
-      - [Exception in parent class can be omitted in sub class](#exception-in-parent-class-can-be-omitted-in-sub-class)
-      - [Why we use encapsulation](#why-we-use-encapsulation)
-      - [Blocking Queue](#blocking-queue)
-      - [Fail Fast vs Fail Safe](#fail-fast-vs-fail-safe)
-      - [What is reflection](#what-is-reflection)
-      - [Loose coupling vs Tight Coupling](#loose-coupling-vs-tight-coupling)
-      - [How many ways to create object](#how-many-ways-to-create-object)
-      - [How to connect to database](#how-to-connect-to-database)
-      - [Hot not ot serialize a variable in a object](#hot-not-ot-serialize-a-variable-in-a-object)
-      - [Volatile](#volatile)
-      - [Advantage of StreaAPI](#advantage-of-streaapi)
-      - [Disadvantage of StreamAPI](#disadvantage-of-streamapi)
-      - [Prallel vs Sequenctial stream api](#prallel-vs-sequenctial-stream-api)
-      - [Statement vs Prepared Statement](#statement-vs-prepared-statement)
-      - [Name few functional interfaces](#name-few-functional-interfaces)
-      - [Intermediate vs Terminal Operation](#intermediate-vs-terminal-operation)
-      - [How to use treemap](#how-to-use-treemap)
+    - [Is static block thread safe](#is-static-block-thread-safe)
+    - [Can static methods overriden](#can-static-methods-overriden)
+    - [Exception in parent class can be omitted in sub class](#exception-in-parent-class-can-be-omitted-in-sub-class)
+    - [Why we use encapsulation](#why-we-use-encapsulation)
+    - [Blocking Queue](#blocking-queue)
+    - [Fail Fast vs Fail Safe](#fail-fast-vs-fail-safe)
+    - [What is reflection](#what-is-reflection)
+    - [Loose coupling vs Tight Coupling](#loose-coupling-vs-tight-coupling)
+    - [How many ways to create object](#how-many-ways-to-create-object)
+    - [How to connect to database](#how-to-connect-to-database)
+    - [Hot not ot serialize a variable in a object](#hot-not-ot-serialize-a-variable-in-a-object)
+    - [Volatile](#volatile)
+    - [Advantage of StreaAPI](#advantage-of-streaapi)
+    - [Disadvantage of StreamAPI](#disadvantage-of-streamapi)
+    - [Prallel vs Sequenctial stream api](#prallel-vs-sequenctial-stream-api)
+    - [Statement vs Prepared Statement](#statement-vs-prepared-statement)
+    - [Name few functional interfaces](#name-few-functional-interfaces)
+    - [Intermediate vs Terminal Operation](#intermediate-vs-terminal-operation)
+    - [How to use treemap](#how-to-use-treemap)
     - [HasMap](#hasmap)
-      - [How Hasmap works](#how-hasmap-works)
-      - [Keys in Hasmap](#keys-in-hasmap)
-      - [Keys in Hasmap](#keys-in-hasmap-1)
-      - [How object has same hashcode everytime](#how-object-has-same-hashcode-everytime)
-      - [What is loadfactor in hashmap](#what-is-loadfactor-in-hashmap)
-      - [Changes to hashmap in Java8](#changes-to-hashmap-in-java8)
+    - [How Hasmap works](#how-hasmap-works)
+    - [Keys in Hasmap](#keys-in-hasmap)
+    - [Keys in Hasmap](#keys-in-hasmap-1)
+    - [How object has same hashcode everytime](#how-object-has-same-hashcode-everytime)
+    - [What is loadfactor in hashmap](#what-is-loadfactor-in-hashmap)
+    - [Changes to hashmap in Java8](#changes-to-hashmap-in-java8)
   - [String](#string)
-      - [String builder vs String buffer](#string-builder-vs-string-buffer)
-      - [String builder declared as final, will append work](#string-builder-declared-as-final-will-append-work)
-      - [Is String immutable & Why](#is-string-immutable-why)
+    - [String builder vs String buffer](#string-builder-vs-string-buffer)
+    - [String builder declared as final, will append work](#string-builder-declared-as-final-will-append-work)
+    - [Is String immutable & Why](#is-string-immutable-why)
   - [Exception](#exception)
-      - [What is error class](#what-is-error-class)
-      - [Custom exception handling](#custom-exception-handling)
-      - [Exception inheritance](#exception-inheritance)
-      - [final , finally](#final-finally)
-      - [throw, throws](#throw-throws)
-      - [What happens when an exception is thrown from finally block](#what-happens-when-an-exception-is-thrown-from-finally-block)
-      - [When to use finally](#when-to-use-finally)
+    - [What is error class](#what-is-error-class)
+    - [Custom exception handling](#custom-exception-handling)
+    - [Exception inheritance](#exception-inheritance)
+    - [final , finally](#final-finally)
+    - [throw, throws](#throw-throws)
+    - [What happens when an exception is thrown from finally block](#what-happens-when-an-exception-is-thrown-from-finally-block)
+    - [When to use finally](#when-to-use-finally)
     - [Multithreading](#multithreading)
-      - [Ways to create thread](#ways-to-create-thread)
-      - [Concurrent COllection](#concurrent-collection)
-      - [Realtime usage of multi thread](#realtime-usage-of-multi-thread)
-      - [Executor Framework](#executor-framework)
+    - [Ways to create thread](#ways-to-create-thread)
+    - [Concurrent COllection](#concurrent-collection)
+    - [Realtime usage of multi thread](#realtime-usage-of-multi-thread)
+    - [Executor Framework](#executor-framework)
 - [DB](#db)
-      - [SQL Injection](#sql-injection)
-      - [Storedprocedure vs function](#storedprocedure-vs-function)
-      - [Data normalization & its types](#data-normalization-its-types)
-      - [General consideration to design database](#general-consideration-to-design-database)
+    - [SQL Injection](#sql-injection)
+    - [Storedprocedure vs function](#storedprocedure-vs-function)
+    - [Data normalization & its types](#data-normalization-its-types)
+    - [General consideration to design database](#general-consideration-to-design-database)
 - [Desing Pattern](#desing-pattern)
-      - [Singleton & Ways to create Singleton](#singleton-ways-to-create-singleton)
-      - [When to use Singleton](#when-to-use-singleton)
-      - [Factory Desing Patern](#factory-desing-patern)
+    - [Singleton & Ways to create Singleton](#singleton-ways-to-create-singleton)
+    - [When to use Singleton](#when-to-use-singleton)
+    - [Factory Desing Patern](#factory-desing-patern)
 
 <!-- /code_chunk_output -->
 
-# REST
+# Interview Question
+
+## REST
 
 ### How to handle security in application
 
@@ -118,7 +120,7 @@
 
 
 
-# Spring
+## Spring
 ### Scope of Bean & Why & when to use
 Prototype is used in threaded environment
 
@@ -143,7 +145,7 @@ Constructor inject is preferable
 
 ### IoC vs DI
 
-# Spring Boot
+## Spring Boot
 
 ### Advantage of Spring Boot over Spring
 
@@ -168,26 +170,11 @@ Constructor inject is preferable
 
 ### Repositories other than JPARepository
 
-# Caching
+## Caching
 ### How to do caching in  application
 
-# Functional Test
-### Any tools to automate functional testing
 
-# Unit Testing
-
-
-###  Mokito
-
-
-### @Before
-
-# Performance Tuning
-
-###  Code optimization tools
-
-
-# Core Java
+## Core Java
 ### Is static block thread safe
 Yes
 
@@ -265,21 +252,21 @@ listOfNumbers.parallelStream().forEach(number ->
 
 ### HasMap 
 
-### How Hasmap works
+#### How Hasmap works
 
-### Keys in Hasmap
+#### Keys in Hasmap
 
-### Keys in Hasmap
+#### Keys in Hasmap
 Object default hashcode - memory addresss
 Object default equal - className + hex(hascode())
 
-### How object has same hashcode everytime
+#### How object has same hashcode everytime
 
 
-### What is loadfactor in hashmap
+#### What is loadfactor in hashmap
 The [load factor](https://www.baeldung.com/java-hashmap-load-factor) is the measure that decides when to increase the capacity of the Map. The default load factor is 75% of the capacity.
 
-### Changes to hashmap in Java8
+#### Changes to hashmap in Java8
 
 
 ## String
@@ -321,7 +308,7 @@ Yes. [Because](https://www.baeldung.com/java-string-immutable)
 
 ### Executor Framework
 
-# DB
+## DB
 
 ### SQL Injection 
 
@@ -345,11 +332,27 @@ Yes. [Because](https://www.baeldung.com/java-string-immutable)
 * Apply the normalization rules    
 
 
-# Desing Pattern
+## Desing Pattern
 
 ### Singleton & Ways to create Singleton
 
 ### When to use Singleton
 
 ### Factory Desing Patern
+
+## Functional Test
+### Any tools to automate functional testing
+
+## Unit Testing
+
+
+###  Mokito
+
+
+### @Before
+
+## Performance Tuning
+
+###  Code optimization tools
+
 
