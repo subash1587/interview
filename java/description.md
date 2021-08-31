@@ -506,7 +506,7 @@ PlatformTransactionManager platformTransactionManager;
             * Data cannot be read, unless another transaction is commited
 
         |  Level | Dirty Read  | Non Repeatable Read| Phantom Read| Locks |
-        |---|---|---|---|---|---|
+        |---|---|---|---|---|
         | Read Uncomitted|:white_check_mark:|:white_check_mark:|:white_check_mark:|:x:|
         | Read comitted   |:x:| :white_check_mark:|:white_check_mark: |:x:|
         | Repeatable Read  | :x:  |:x:|:white_check_mark: |:x:|
