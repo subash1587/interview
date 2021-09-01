@@ -1,6 +1,4 @@
 # Searching Algorithms
-## Binary search
-# Sorting Algorithms
-## Bubble Sort
+rt
 ## Insertion Sort
 ## Selection Sort
