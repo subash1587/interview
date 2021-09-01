@@ -1,5 +1,5 @@
-# Searching Algorithm
+# Searching Algorithms
 ## Binary search
-# Sorting Algorithm
+# Sorting Algorithms
 ## Bubble Sort
 ## Insertion Sort
