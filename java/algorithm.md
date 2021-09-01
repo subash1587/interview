@@ -1,2 +1,3 @@
-binary search
-sorting algorith
+# Searching Algorithm
+## Binary search
+# Sorting Algorithm
