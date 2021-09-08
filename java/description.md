@@ -196,6 +196,11 @@ These three phases take software from idea to delivery to the end-user
 * `git add filname` add file to commit
 
 * `head` is reference to the last commit object of a branch
+### Git pull latest changes from remote repo to local
+* git remote add upstream url
+* git fetch upstream
+* git merge upstream/master
+
 
 ### Git Dev process
 #### Merge conflict
