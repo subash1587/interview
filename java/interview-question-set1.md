@@ -19,6 +19,8 @@
     - [How to scan components in other package](#how-to-scan-components-in-other-package)
     - [@Controller vs @RestController](#controller-vs-restcontroller)
     - [IoC vs DI](#ioc-vs-di)
+    - #where do you use controller advise in your project? Where can it be used?
+    - #How do you manage transactions in your project?
 - [Spring Boot](#spring-boot)
     - [Advantage of Spring Boot over Spring](#advantage-of-spring-boot-over-spring)
     - [How to refer data from application.properties inside a bean](#how-to-refer-data-from-applicationproperties-inside-a-bean)
@@ -64,6 +66,8 @@
     - [How object has same hashcode everytime](#how-object-has-same-hashcode-everytime)
     - [What is loadfactor in hashmap](#what-is-loadfactor-in-hashmap)
     - [Changes to hashmap in Java8](#changes-to-hashmap-in-java8)
+    - #How to count the number of occurences of an element in a stream?
+    - #How do you debug?
   - [String](#string)
     - [String builder vs String buffer](#string-builder-vs-string-buffer)
     - [String builder declared as final, will append work](#string-builder-declared-as-final-will-append-work)
